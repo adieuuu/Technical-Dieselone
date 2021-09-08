@@ -1,0 +1,27 @@
+var a = prompt("Masukan bilangan")
+var input = parseInt(a)
+
+function pola(input) {
+  let hasil = ''
+  for(let i = 1; i <= input; i++){
+    for(let j = 0; j <= input - i; j++){
+      hasil += ' '
+    }
+    for(let j = 1; j <= 2 * i - 1; j++){
+      hasil += '*'
+    }
+    hasil += '\n'
+  }
+  for(let i = 1; i <= input; i++){
+    for(let j = 1; j <= i; j++){
+      hasil += ' '
+    }
+    for(let j = 2 * input - 2 * i -1; j >= 1; j--){
+      hasil += "*"
+    }
+    hasil += '\n'
+  }
+  return hasil
+}
+
+console.log(pola(input))
