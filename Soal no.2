@@ -1,0 +1,27 @@
+var leader = [200,100,100,50,10]
+var player = [20,80,80,10,10,300]
+var newArr = leader.concat(player)
+var tempArr = []
+var ans = []
+newArr.sort(function(a, b){return b - a;})
+
+for(let i = 0; i < newArr.length; i++){
+  if(i == 0){
+    tempArr.push(1)
+  }
+  else if(newArr[i] == newArr[i-1]){
+    tempArr.push(tempArr[i-1])
+  }
+  else{
+    tempArr.push(tempArr[i-1] + 1)
+  }
+}
+for(let i = 0; i < player.length; i++){
+  for(let y = 0; y < newArr.length; y ++){
+    if(player[i] == newArr[y]){
+      ans.push(tempArr[y])
+      break
+    }
+  }
+}
+console.log(ans)
